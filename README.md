@@ -2,7 +2,7 @@
 
 I have followed a dropwizard-hibernate tutorial which can be found here https://dzone.com/articles/getting-started-with-dropwizard-connecting-to-a-da for detailed explanation or https://www.dropwizard.io/en/stable/manual/hibernate.html. There are some few changes I made.
 
-Databe:
+Database:
 ---
 
 A table can be created in StudentDB using the statement:
