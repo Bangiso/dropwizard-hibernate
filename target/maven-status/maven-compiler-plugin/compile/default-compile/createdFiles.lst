@@ -1,0 +1,6 @@
+com/aphiwe/hibernate/core/Student.class
+com/aphiwe/hibernate/StudentRecordHBApplication$1.class
+com/aphiwe/hibernate/StudentRecordHBApplication.class
+com/aphiwe/hibernate/resources/StudentResource.class
+com/aphiwe/hibernate/StudentRecordHBConfiguration.class
+com/aphiwe/hibernate/db/StudentDAO.class
