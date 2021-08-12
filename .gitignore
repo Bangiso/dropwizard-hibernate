@@ -1,0 +1,8 @@
+.idea/
+StudentRecordJB.iml
+target/
+*.log
+*.iws
+*.iml
+*.ipr
+*-reduced-pom.xml
