@@ -7,6 +7,7 @@ Database:
 
 A table can be created in StudentDB using the statement:
 
+```
 CREATE TABLE students(
 	id int,
 	fName varchar(255),
@@ -14,6 +15,7 @@ CREATE TABLE students(
 	Email varchar(255),
 	Field varchar(255),
 	GPA double);
+```
 
 
 How to start the StudentRecordHB application
