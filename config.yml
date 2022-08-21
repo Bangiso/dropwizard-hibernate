@@ -5,5 +5,5 @@ logging:
 database:
   driverClass: com.mysql.jdbc.Driver
   user: root
-  password: password@123
+  password: test1234
   url: jdbc:mysql://localhost:3306/StudentDB
