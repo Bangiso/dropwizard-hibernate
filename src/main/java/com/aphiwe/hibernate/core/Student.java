@@ -1,6 +1,37 @@
 package com.aphiwe.hibernate.core;
 import javax.persistence.*;
 
+
+//@NamedNativeQueries({
+//        @NamedNativeQuery(name = "com.aphiwe.hibernate.core.Student.findAll",
+//                query = "select id, first_name as firstName, last_name lastName, Email as email,  field , gpa from students e"),
+//        @NamedNativeQuery(name = "com.aphiwe.hibernate.core.Student.findByName",
+//                query = "select id, first_name as firstName, last_name lastName, Email as email,  field , gpa from students e "
+//                        + "where e.last_name like :name "
+//                        + "or e.first_name like :name"),
+//        @NamedNativeQuery(name = "com.aphiwe.hibernate.core.Student.findById",
+//                query = "select id, first_name as firstName, last_name lastName, Email as email,  field , gpa from students e "
+//                        + "where e.id = :id"),
+//        @NamedNativeQuery(name = "com.aphiwe.hibernate.core.Student.insert",
+//                query = "INSERT INTO students (id, firstName, lastName, email, field, gpa) " +
+//                        "VALUES (:id, ':firstName', ':lastName', ':email', ':field', :gpa)")
+//})
+//@Entity
+//@Table(name = "students")
+//@NamedQueries({
+//        @NamedQuery(name = "com.aphiwe.hibernate.core.Student.findAll",
+//                query = "select e from Student e"),
+//        @NamedQuery(name = "com.aphiwe.hibernate.core.Student.findByName",
+//                query = "select e from Student e "
+//                        + "where e.last_name like :name "
+//                        + "or e.first_name like :name"),
+//        @NamedQuery(name = "com.aphiwe.hibernate.core.Student.findById",
+//                query = "select e Student e "
+//                        + "where e.id = :id"),
+////        @NamedQuery(name = "com.aphiwe.hibernate.core.Student.insert",
+////                query = "INSERT INTO Student (id, first_name, last_name, email, field, gpa) " +
+////                        "VALUES (:id, ':firstName', ':lastName', ':email', ':field', :gpa)")
+//})
 @Entity
 @Table(name = "students")
 @NamedQueries({
@@ -8,34 +39,23 @@ import javax.persistence.*;
                 query = "select e from Student e"),
         @NamedQuery(name = "com.aphiwe.hibernate.core.Student.findByName",
                 query = "select e from Student e "
-                        + "where e.fname like :name "
-                        + "or e.lname like :name")
+                        + "where e.firstName like :name "
+                        + "or e.lastName like :name"),
 })
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(name="fName")
-    private String fname;
-    @Column(name="lName")
-    private String lname;
-    @Column(name="Email")
+    @Column(name="first_name")
+    private String firstName;
+    @Column(name="last_name")
+    private String lastName;
+    @Column(name="email")
     private String email;
-    @Column(name="Field")
-    private String Field;
-    @Column(name="GPA")
-    private Double GPA;
-
-    public Student(){}
-    public Student(long id, String fname, String lname, String email, String field, Double GPA) {
-        this.id = id;
-        this.fname = fname;
-        this.lname = lname;
-        this.email = email;
-        Field = field;
-        this.GPA = GPA;
-    }
-
+    @Column(name="field")
+    private String field;
+    @Column(name="gpa")
+    private Double gpa;
 
     public long getId() {
         return id;
@@ -45,20 +65,20 @@ public class Student {
         this.id = id;
     }
 
-    public String getFname() {
-        return fname;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFname(String fname) {
-        this.fname = fname;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getLname() {
-        return lname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLname(String lname) {
-        this.lname = lname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getEmail() {
@@ -70,29 +90,40 @@ public class Student {
     }
 
     public String getField() {
-        return Field;
+        return field;
     }
 
     public void setField(String field) {
-        Field = field;
+        this.field = field;
     }
 
-    public Double getGPA() {
-        return GPA;
+    public Double getGpa() {
+        return gpa;
     }
 
-    public void setGPA(Double GPA) {
-        this.GPA = GPA;
+    public void setGpa(Double gpa) {
+        this.gpa = gpa;
     }
+
+    public Student(){}
+    public Student(long id, String firstName, String lastName, String email, String field, Double gpa) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.field = field;
+        this.gpa = gpa;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
                 "id=" + id +
-                ", fname='" + fname + '\'' +
-                ", lname='" + lname + '\'' +
+                ", fname='" + firstName + '\'' +
+                ", lname='" + lastName + '\'' +
                 ", email='" + email + '\'' +
-                ", Field='" + Field + '\'' +
-                ", GPA=" + GPA +
+                ", Field='" + field + '\'' +
+                ", GPA=" + gpa +
                 '}';
     }
 

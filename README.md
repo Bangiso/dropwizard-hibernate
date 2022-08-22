@@ -9,12 +9,12 @@ A table can be created in StudentDB using the statement:
 
 ```
 CREATE TABLE students(
-	id int,
-	fName varchar(255),
-	lName varchar(255),
-	Email varchar(255),
-	Field varchar(255),
-	GPA double);
+	id int NOT NULL PRIMARY KEY,
+	first_name varchar(255),
+	last_name varchar(255),
+	email varchar(255),
+	field varchar(255),
+	gpa double);
 ```
 
 
