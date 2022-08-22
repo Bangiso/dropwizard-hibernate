@@ -1,4 +1,4 @@
-package com.aphiwe.hibernate.core;
+package com.aphiwe.hibernate.api;
 import javax.persistence.*;
 
 @Entity

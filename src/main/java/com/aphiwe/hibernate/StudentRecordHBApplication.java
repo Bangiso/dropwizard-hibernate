@@ -1,7 +1,7 @@
 package com.aphiwe.hibernate;
-import com.aphiwe.hibernate.core.Student;
-import com.aphiwe.hibernate.db.StudentDAO;
-import com.aphiwe.hibernate.resources.StudentResource;
+import com.aphiwe.hibernate.api.Student;
+import com.aphiwe.hibernate.db.StudentsDAO;
+import com.aphiwe.hibernate.resources.StudentsResource;
 import io.dropwizard.Application;
 import io.dropwizard.db.DataSourceFactory;
 import io.dropwizard.hibernate.HibernateBundle;
@@ -40,9 +40,9 @@ public class StudentRecordHBApplication extends Application<StudentRecordHBConfi
     @Override
     public void run(final StudentRecordHBConfiguration configuration,
                     final Environment environment) {
-        final StudentDAO studentDAO
-                = new StudentDAO(hibernateBundle.getSessionFactory());
-        environment.jersey().register(new StudentResource(studentDAO));
+        final StudentsDAO studentDAO
+                = new StudentsDAO(hibernateBundle.getSessionFactory());
+        environment.jersey().register(new StudentsResource(studentDAO));
     }
 
 }

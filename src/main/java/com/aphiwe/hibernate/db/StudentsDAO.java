@@ -1,5 +1,5 @@
 package com.aphiwe.hibernate.db;
-import com.aphiwe.hibernate.core.*;
+import com.aphiwe.hibernate.api.*;
 import io.dropwizard.hibernate.AbstractDAO;
 import io.dropwizard.logback.shaded.guava.base.Optional;
 import org.apache.log4j.Logger;
@@ -7,12 +7,12 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import java.util.List;
 
-public class StudentDAO extends AbstractDAO<Student> {
+public class StudentsDAO extends AbstractDAO<Student> {
 
-    private Logger logger = Logger.getLogger(StudentDAO.class.getName());
+    private Logger logger = Logger.getLogger(StudentsDAO.class.getName());
     private  SessionFactory sessionFactory;
 
-    public StudentDAO(SessionFactory sessionFactory) {
+    public StudentsDAO(SessionFactory sessionFactory) {
         super(sessionFactory);
         this.sessionFactory = sessionFactory;
     }

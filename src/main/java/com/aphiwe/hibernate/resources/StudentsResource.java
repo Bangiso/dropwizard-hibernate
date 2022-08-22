@@ -1,7 +1,7 @@
 package com.aphiwe.hibernate.resources;
 
-import com.aphiwe.hibernate.core.Student;
-import com.aphiwe.hibernate.db.StudentDAO;
+import com.aphiwe.hibernate.api.Student;
+import com.aphiwe.hibernate.db.StudentsDAO;
 import io.dropwizard.hibernate.UnitOfWork;
 import io.dropwizard.logback.shaded.guava.base.Optional;
 import org.apache.log4j.Logger;
@@ -13,12 +13,12 @@ import java.util.List;
 
 @Path("/students")
 @Produces(MediaType.APPLICATION_JSON)
-public class StudentResource {
+public class StudentsResource {
 
-    private StudentDAO studentDAO;
-    private Logger logger = Logger.getLogger(StudentResource.class.getName());
+    private StudentsDAO studentDAO;
+    private Logger logger = Logger.getLogger(StudentsResource.class.getName());
 
-    public StudentResource(StudentDAO studentDAO) {
+    public StudentsResource(StudentsDAO studentDAO) {
         this.studentDAO = studentDAO;
     }
 
