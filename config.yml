@@ -1,7 +1,7 @@
 logging:
   level: INFO
   loggers:
-    com.aphiwe.hibernate: DEBUG
+    com.aphiwe.hibernate: INFO
 database:
   driverClass: com.mysql.jdbc.Driver
   user: root
