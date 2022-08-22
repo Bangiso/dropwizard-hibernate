@@ -1,37 +1,6 @@
 package com.aphiwe.hibernate.core;
 import javax.persistence.*;
 
-
-//@NamedNativeQueries({
-//        @NamedNativeQuery(name = "com.aphiwe.hibernate.core.Student.findAll",
-//                query = "select id, first_name as firstName, last_name lastName, Email as email,  field , gpa from students e"),
-//        @NamedNativeQuery(name = "com.aphiwe.hibernate.core.Student.findByName",
-//                query = "select id, first_name as firstName, last_name lastName, Email as email,  field , gpa from students e "
-//                        + "where e.last_name like :name "
-//                        + "or e.first_name like :name"),
-//        @NamedNativeQuery(name = "com.aphiwe.hibernate.core.Student.findById",
-//                query = "select id, first_name as firstName, last_name lastName, Email as email,  field , gpa from students e "
-//                        + "where e.id = :id"),
-//        @NamedNativeQuery(name = "com.aphiwe.hibernate.core.Student.insert",
-//                query = "INSERT INTO students (id, firstName, lastName, email, field, gpa) " +
-//                        "VALUES (:id, ':firstName', ':lastName', ':email', ':field', :gpa)")
-//})
-//@Entity
-//@Table(name = "students")
-//@NamedQueries({
-//        @NamedQuery(name = "com.aphiwe.hibernate.core.Student.findAll",
-//                query = "select e from Student e"),
-//        @NamedQuery(name = "com.aphiwe.hibernate.core.Student.findByName",
-//                query = "select e from Student e "
-//                        + "where e.last_name like :name "
-//                        + "or e.first_name like :name"),
-//        @NamedQuery(name = "com.aphiwe.hibernate.core.Student.findById",
-//                query = "select e Student e "
-//                        + "where e.id = :id"),
-////        @NamedQuery(name = "com.aphiwe.hibernate.core.Student.insert",
-////                query = "INSERT INTO Student (id, first_name, last_name, email, field, gpa) " +
-////                        "VALUES (:id, ':firstName', ':lastName', ':email', ':field', :gpa)")
-//})
 @Entity
 @Table(name = "students")
 @NamedQueries({
