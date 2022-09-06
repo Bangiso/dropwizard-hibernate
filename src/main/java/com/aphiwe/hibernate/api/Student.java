@@ -1,5 +1,6 @@
 package com.aphiwe.hibernate.api;
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "students")
@@ -96,4 +97,16 @@ public class Student {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return id == student.id && firstName.equals(student.firstName) && lastName.equals(student.lastName) && email.equals(student.email) && field.equals(student.field) && gpa.equals(student.gpa);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstName, lastName, email, field, gpa);
+    }
 }
