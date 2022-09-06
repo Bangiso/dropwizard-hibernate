@@ -92,53 +92,53 @@ public class StudentsResourceTest {
         String json = mapper.writeValueAsString(student);
         Entity payload = Entity.entity(json, MediaType.APPLICATION_JSON);
 
-        when(DAO.update(any(long.class), any(Student.class))).thenReturn(true);
+        when(DAO.update(1L, student)).thenReturn(true);
 
         Response found = EXT.target("/students/1/update").request().put(payload);
         assertThat(found.getStatus()).isEqualTo(200);
-        verify(DAO, times(1)).update(any(long.class), any(Student.class));
+        verify(DAO, times(1)).update(1L, student);
     }
 
     @Test
     void updateStudentConflict() throws JsonProcessingException {
 
-        when(DAO.update(any(long.class), any(Student.class))).thenReturn(true);
+        when(DAO.update(1L, student)).thenReturn(true);
         ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(student);
 
         Entity payload = Entity.entity(json, MediaType.APPLICATION_JSON_TYPE);
         Response found = EXT.target("/students/2/update").request().put(payload);
         assertThat(found.getStatus()).isEqualTo(409);
-        verify(DAO, never()).update(any(long.class), any(Student.class));
+        verify(DAO, never()).update(1L, student);
     }
 
     @Test
     void updateStudentNotModified() throws JsonProcessingException {
 
-        when(DAO.update(any(long.class), any(Student.class))).thenReturn(false);
+        when(DAO.update(1L, student)).thenReturn(false);
         ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(student);
 
         Entity payload = Entity.entity(json, MediaType.APPLICATION_JSON_TYPE);
         Response found = EXT.target("/students/1/update").request().put(payload);
         assertThat(found.getStatus()).isEqualTo(304);
-        verify(DAO, times(1)).update(any(long.class), any(Student.class));
+        verify(DAO, times(1)).update(1L, student);
     }
 
     @Test
     void saveStudentSuccess() throws JsonProcessingException {
-        when(DAO.save(any(Student.class))).thenReturn(true);
+        when(DAO.save(student)).thenReturn(true);
         ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(student);
 
         Entity payload = Entity.entity(json, MediaType.APPLICATION_JSON_TYPE);
         Response found = EXT.target("/students/add").request().post(payload);
         assertThat(found.getStatus()).isEqualTo(200);
-        verify(DAO, times(1)).save(any(Student.class));
+        verify(DAO, times(1)).save(student);
     }
     @Test
     void saveStudentNotModified() throws JsonProcessingException {
-        when(DAO.save(any(Student.class))).thenReturn(false);
+        when(DAO.save(student)).thenReturn(false);
 
         ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(student);
@@ -146,7 +146,7 @@ public class StudentsResourceTest {
         Entity payload = Entity.entity(json, MediaType.APPLICATION_JSON_TYPE);
         Response found = EXT.target("/students/add").request().post(payload);
         assertThat(found.getStatus()).isEqualTo(304);
-        verify(DAO,times(1)).save(any(Student.class));
+        verify(DAO,times(1)).save(student);
     }
 
     @Test
